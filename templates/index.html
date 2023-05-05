@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hangman</title>
+</head>
+<body>
+    <h1>Let's play Hangman!</h1>
+    <h2>Attempts left: {{ attempts }}</h2>
+    <h2>{{ message }}</h2>
+    <h2>Guess the word:</h2>
+    <pre>{{ hangman_stage }}</pre>
+    <p>
+        {% for letter in chosen_word %}
+            {% if letter in guessed_letters %}
+                {{ letter }}
+            {% else %}
+                _ 
+            {% endif %}
+        {% endfor %}
+    </p>
+    <form method="POST">
+        <input type="text" name="guess" required>
+        <button type="submit">Guess</button>
+    </form>
+</body>
+</html>
+
